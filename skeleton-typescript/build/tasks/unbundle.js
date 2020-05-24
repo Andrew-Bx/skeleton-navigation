@@ -1,6 +1,4 @@
-import {series} from 'gulp';
 import bundles from '../bundles.js';
-import {build} from './build';
 
 const config = {
   force: true,
@@ -9,8 +7,7 @@ const config = {
   bundles: bundles.bundles
 };
 
-function bundleAfterBuild() {
+export const unbundle = function() {
   const bundler = require('aurelia-bundler');
-  return bundler.bundle(config);
-}
-export const bundle = series(build, bundleAfterBuild);
+  return bundler.unbundle(config);
+};

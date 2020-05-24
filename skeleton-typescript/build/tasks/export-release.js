@@ -1,13 +1,8 @@
-'use strict';
-
-const gulp = require('gulp');
-const runSequence = require('run-sequence');
-const del = require('del');
-const vinylPaths = require('vinyl-paths');
-const jspm = require('jspm');
-const paths = require('../paths');
-const bundles = require('../bundles.js');
-const resources = require('../export.js');
+import gulp from 'gulp';
+import bundles from '../bundles.js';
+import resources from '../export.js';
+import paths from '../paths';
+import { bundle } from './bundle';
 
 function getBundles() {
   let bl = [];
@@ -22,6 +17,8 @@ function getExportList() {
 }
 
 function normalizeExportPaths() {
+  const jspm = require('jspm');
+
   const pathsToNormalize = resources.normalize;
 
   let promises =  pathsToNormalize.map(pathSet => {
@@ -41,30 +38,34 @@ function normalizeExportPaths() {
 }
 
 // deletes all files in the output path
-gulp.task('clean-export', function() {
+export function cleanExport() {
+  const del = require( 'del');
+  const vinylPaths = require( 'vinyl-paths');
+
   return gulp.src([ paths.exportSrv ])
     .pipe(vinylPaths(del));
-});
+};
+cleanExport.displayName = 'clean-export';
 
-gulp.task('export-copy', function() {
+export function exportCopy() {
   return gulp.src(getExportList(), { base: '.' })
     .pipe(gulp.dest(paths.exportSrv));
-});
+};
+exportCopy.displayName = 'export-copy';
 
-gulp.task('export-normalized-resources', function() {
+export function exportNormalizedResources() {
   return normalizeExportPaths().then(normalizedPaths => {
     return gulp.src(normalizedPaths, { base: '.' })
       .pipe(gulp.dest(paths.exportSrv));
   });
-});
+};
+exportNormalizedResources.displayName = 'export-normalized-resources';
 
 // use after prepare-release
-gulp.task('export', function(callback) {
-  return runSequence(
-    'bundle',
-    'clean-export',
-    'export-normalized-resources',
-    'export-copy',
-    callback
-  );
-});
+export const exportRelease = gulp.series(
+  bundle,
+  cleanExport,
+  exportNormalizedResources,
+  exportCopy
+);
+exportRelease.displayName = 'export';

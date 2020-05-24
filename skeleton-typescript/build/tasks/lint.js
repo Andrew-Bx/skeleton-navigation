@@ -1,11 +1,9 @@
-var gulp = require('gulp');
-var paths = require('../paths');
-var tslint = require('gulp-tslint');
+import gulp from 'gulp';
+import paths from '../paths';
 
-gulp.task('lint', function() {
+export function lint() {
+  const tslint = require('gulp-tslint');
   return gulp.src(paths.source)
-    .pipe(tslint({
-      emitError: false
-    }))
-    .pipe(tslint.report());
-});
+    .pipe(tslint())
+    .pipe(tslint.report({emitError: false}));
+}

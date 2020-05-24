@@ -1,21 +1,30 @@
-var gulp = require('gulp');
-var Karma = require('karma').Server;
+import gulp from 'gulp';
+import { clean } from './clean';
 
 /**
  * Run test once and exit
  */
-gulp.task('test', ['clean'], function (done) {
-  new Karma({
-    configFile: __dirname + '/../../karma.conf.js',
-    singleRun: true
-  }, done).start();
-});
+export const test = gulp.series(clean, doSingleKarmaRun);
+
+function doSingleKarmaRun(done) {
+  const Server =require('karma').Server;
+  const server = 
+    new Server({
+      configFile: __dirname + '/../../karma.conf.js',
+      singleRun: true
+    }, done);
+  server.start();
+}
 
 /**
  * Watch for file changes and re-run tests on each change
  */
-gulp.task('tdd', ['clean'], function (done) {
-  new Karma({
+export const tdd = gulp.series(clean, doKarmaRunWatch);
+
+function doKarmaRunWatch(done) {
+  const Server =require('karma').Server;
+  const server = new Server({
     configFile: __dirname + '/../../karma.conf.js'
-  }, done).start();
-});
+  }, done);
+  server.start();
+}

@@ -1,10 +1,14 @@
-var gulp = require('gulp');
-var paths = require('../paths');
-var del = require('del');
-var vinylPaths = require('vinyl-paths');
+import gulp from 'gulp';
+import paths from '../paths';
+import { unbundle } from './unbundle';
 
-// deletes all files in the output path
-gulp.task('clean', ['unbundle'], function() {
-  return gulp.src([paths.output])
-    .pipe(vinylPaths(del));
-});
+function deleteOutputs() {
+  const del = require('del');
+  const vinylPaths = require('vinyl-paths');
+
+  return gulp.src([paths.output], {allowEmpty: true})
+             .pipe(vinylPaths(del));
+}
+
+export const clean = gulp.series(unbundle, deleteOutputs);
+clean.description = 'deletes all files in the output path';
