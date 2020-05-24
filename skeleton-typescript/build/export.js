@@ -6,7 +6,7 @@ module.exports = {
     'index.html',
     'config.js',
     'favicon.ico',
-    'LICENSE',
+    //'LICENSE',
     "jspm_packages/npm/bluebird@3.4.1/js/browser/bluebird.min.js", 
     'jspm_packages/system.js',
     'jspm_packages/system-polyfills.js',

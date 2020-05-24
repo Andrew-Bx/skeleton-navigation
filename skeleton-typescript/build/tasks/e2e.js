@@ -1,27 +1,27 @@
-var gulp = require('gulp');
-var paths = require('../paths');
-var plumber = require('gulp-plumber');
-var webdriverUpdate = require('gulp-protractor').webdriver_update;
-var webdriverStandalone = require('gulp-protractor').webdriver_standalone;
-var protractor = require('gulp-protractor').protractor;
-var typescript = require('gulp-typescript');
-var assign = Object.assign || require('object.assign');
-var del = require('del');
+import del from 'del';
+import gulp from 'gulp';
+import { protractor, webdriver_standalone, webdriver_update } from 'gulp-protractor';
+import typescript from 'gulp-typescript';
+import paths from '../paths';
 
 // for full documentation of gulp-protractor,
 // please check https://github.com/mllrsohn/gulp-protractor
-gulp.task('webdriver-update', webdriverUpdate);
-gulp.task('webdriver-standalone', ['webdriver-update'], webdriverStandalone);
+export { webdriver_update };
+export const webdriverStandalone = gulp.series(webdriver_update, webdriver_standalone);
 
-gulp.task('clean-e2e', function() {
+export function cleanE2e() {
   return del(paths.e2eSpecsDist + '*');
-});
+};
 
-// transpiles files in
-// /test/e2e/src/ from es6 to es5
-// then copies them to test/e2e/dist/
-var typescriptCompiler = typescriptCompiler || null;
-gulp.task('build-e2e', ['clean-e2e'], function() {
+export const buildE2e = gulp.series(cleanE2e, buildSpecs);
+
+let typescriptCompiler;
+/**
+ * transpiles files in
+ * /test/e2e/src/ from es6 to es5
+ * then copies them to test/e2e/dist/
+ */
+function buildSpecs() {
   if(!typescriptCompiler) {
     typescriptCompiler = typescript.createProject('tsconfig.e2e.json', {
       "typescript": require('typescript'),
@@ -31,12 +31,14 @@ gulp.task('build-e2e', ['clean-e2e'], function() {
   return gulp.src(paths.dtsSrc.concat(paths.e2eSpecsSrc))
     .pipe(typescriptCompiler())
     .pipe(gulp.dest(paths.e2eSpecsDist));
-});
+}
 
 // runs build-e2e task
 // then runs end to end tasks
 // using Protractor: http://angular.github.io/protractor/
-gulp.task('e2e', ['build-e2e'], function(cb) {
+export const e2e = gulp.series(buildE2e, runProtractor);
+
+function runProtractor() {
   return gulp.src(paths.e2eSpecsDist + '**/*.js')
     .pipe(protractor({
       configFile: 'protractor.conf.js',
@@ -44,4 +46,4 @@ gulp.task('e2e', ['build-e2e'], function(cb) {
     }))
     .on('end', function() { process.exit(); })
     .on('error', function(e) { throw e; });
-});
+}
