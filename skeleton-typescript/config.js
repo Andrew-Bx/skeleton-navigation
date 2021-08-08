@@ -1,10 +1,11 @@
 System.config({
+  warnings: true,
   defaultJSExtensions: true,
   transpiler: false,
   paths: {
-    "*": "dist/*",
-    "github:*": "jspm_packages/github/*",
-    "npm:*": "jspm_packages/npm/*"
+    "github:": "jspm_packages/github/",
+    "npm:": "jspm_packages/npm/",
+    "": "dist/"
   },
   meta: {
     "bootstrap": {
