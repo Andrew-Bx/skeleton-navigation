@@ -5,7 +5,7 @@ import {build} from './build';
 const config = {
   force: true,
   baseURL: '.',
-  configPath: './config.js',
+  configPath: './jspm.config.js',
   bundles: bundles.bundles
 };
 

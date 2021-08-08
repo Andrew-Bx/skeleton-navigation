@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
-  <body aurelia-app="main">
+  <body aurelia-app="dist/main"></body>
     <div class="splash">
       <div class="message">Aurelia Navigation Skeleton</div>
       <i class="fa fa-spinner fa-spin"></i>
@@ -22,7 +22,7 @@
     <!-- consider removing bluebird from your project and simply using native promises if you do     -->
     <!-- not need to support Internet Explorer.                                                      -->
     <script src="jspm_packages/system.js"></script>
-    <script src="config.js"></script>
+    <script src="jspm.config.js"></script>
     <script src="jspm_packages/npm/bluebird@3.4.1/js/browser/bluebird.min.js"></script>
     <script>
       System.import('aurelia-bootstrapper');

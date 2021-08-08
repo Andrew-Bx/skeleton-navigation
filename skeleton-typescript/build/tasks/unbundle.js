@@ -3,7 +3,7 @@ import bundles from '../bundles.js';
 const config = {
   force: true,
   baseURL: '.',
-  configPath: './config.js',
+  configPath: './jspm.config.js',
   bundles: bundles.bundles
 };
 

@@ -4,7 +4,7 @@
 module.exports = {
   'list': [
     'index.html',
-    'config.js',
+    'jspm.config.js',
     'favicon.ico',
     //'LICENSE',
     "jspm_packages/npm/bluebird@3.4.1/js/browser/bluebird.min.js", 
