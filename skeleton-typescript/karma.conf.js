@@ -3,7 +3,7 @@ module.exports = function(config) {
     basePath: './',
     frameworks: ['systemjs', 'jasmine'],
     systemjs: {
-      configFile: 'config.js',
+      configFile: 'jspm.config.js',
       config: {
         meta: {
           typescript: {

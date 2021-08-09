@@ -5,7 +5,7 @@ var bundles = require('../bundles.js');
 var config = {
   force: true,
   baseURL: '.',
-  configPath: './config.js',
+  configPath: './jspm.config.js',
   bundles: bundles.bundles
 };
 
