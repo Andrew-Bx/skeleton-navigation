@@ -12,10 +12,9 @@ module.exports = function(config) {
           }
         },
         paths: {
-          "*": "*",
-          "src/*": "src/*",
-          "typescript": "node_modules/typescript/lib/typescript.js",
-          "systemjs": "node_modules/systemjs/dist/system.js",
+          'typescript': 'node_modules/typescript/lib/typescript.js',
+          'ts': 'jspm_packages/github/frankwallis/plugin-typescript@9.0.0/plugin.js',
+          'systemjs': 'jspm_packages/system.js',
           'system-polyfills': 'node_modules/systemjs/dist/system-polyfills.js',
           'es6-module-loader': 'node_modules/es6-module-loader/dist/es6-module-loader.js'
         },
@@ -25,18 +24,30 @@ module.exports = function(config) {
           },
           'src': {
             defaultExtension: 'ts'
+          },
+          'ts': {
+            'main': 'plugin.js'
+          },
+          'typescript': {
+            'main': 'lib/typescript.js',
+            'meta': {
+              'lib/typescript.js': {
+                'exports': 'ts'
+              }
+            }
           }
         },
-        transpiler: 'typescript',
+        transpiler: 'ts',
         typescriptOptions : {
-          "module": "amd",
+          "module": "system",
           "emitDecoratorMetadata": true,
           "experimentalDecorators": true
         }
       },
       serveFiles: [
         'src/**/*.*',
-        'jspm_packages/**/*.js'
+        'jspm_packages/**/*.js',
+        'jspm_packages/**/*.json'
       ]
     },
     files: [
