@@ -467,5 +467,124 @@ System.config({
         "safe-buffer": "npm:safe-buffer@5.1.2"
       }
     }
+  },
+  depCache: {
+    "dist/blur-image.js": [
+      "aurelia-framework"
+    ],
+    "dist/main.js": [
+      "bootstrap"
+    ],
+    "dist/users.js": [
+      "aurelia-framework",
+      "aurelia-fetch-client",
+      "fetch"
+    ],
+    "github:twbs/bootstrap@3.3.7/dist/js/bootstrap.js": [
+      "jquery"
+    ],
+    "npm:aurelia-history-browser@1.4.0/aurelia-history-browser.js": [
+      "aurelia-history",
+      "aurelia-pal"
+    ],
+    "npm:aurelia-loader-default@1.2.1/aurelia-loader-default.js": [
+      "aurelia-loader",
+      "aurelia-pal",
+      "aurelia-metadata"
+    ],
+    "npm:aurelia-loader@1.0.2/aurelia-loader.js": [
+      "aurelia-path",
+      "aurelia-metadata"
+    ],
+    "npm:aurelia-metadata@1.0.7/aurelia-metadata.js": [
+      "aurelia-pal"
+    ],
+    "npm:aurelia-templating-router@1.4.0/aurelia-templating-router.js": [
+      "aurelia-router",
+      "aurelia-metadata",
+      "aurelia-path",
+      "aurelia-templating",
+      "aurelia-dependency-injection",
+      "aurelia-binding",
+      "aurelia-pal",
+      "aurelia-logging"
+    ],
+    "npm:aurelia-router@1.7.1/aurelia-router.js": [
+      "aurelia-logging",
+      "aurelia-dependency-injection",
+      "aurelia-history",
+      "aurelia-route-recognizer",
+      "aurelia-event-aggregator"
+    ],
+    "npm:aurelia-templating@1.10.4/aurelia-templating.js": [
+      "aurelia-logging",
+      "aurelia-metadata",
+      "aurelia-pal",
+      "aurelia-loader",
+      "aurelia-path",
+      "aurelia-binding",
+      "aurelia-dependency-injection",
+      "aurelia-task-queue"
+    ],
+    "npm:aurelia-dependency-injection@1.5.2/aurelia-dependency-injection.js": [
+      "aurelia-metadata",
+      "aurelia-pal"
+    ],
+    "npm:aurelia-binding@2.5.4/aurelia-binding.js": [
+      "aurelia-logging",
+      "aurelia-pal",
+      "aurelia-task-queue",
+      "aurelia-metadata"
+    ],
+    "npm:aurelia-route-recognizer@1.3.2/aurelia-route-recognizer.js": [
+      "aurelia-path"
+    ],
+    "npm:aurelia-event-aggregator@1.0.3/aurelia-event-aggregator.js": [
+      "aurelia-logging"
+    ],
+    "npm:aurelia-task-queue@1.3.3/aurelia-task-queue.js": [
+      "aurelia-pal"
+    ],
+    "npm:aurelia-templating-resources@1.13.1/aurelia-templating-resources.js": [
+      "aurelia-dependency-injection",
+      "aurelia-pal",
+      "aurelia-task-queue",
+      "aurelia-templating",
+      "aurelia-binding",
+      "aurelia-logging",
+      "aurelia-loader",
+      "aurelia-path",
+      "aurelia-metadata"
+    ],
+    "npm:aurelia-polyfills@1.3.4/aurelia-polyfills.js": [
+      "aurelia-pal"
+    ],
+    "npm:aurelia-pal-browser@1.8.1/aurelia-pal-browser.js": [
+      "aurelia-pal"
+    ],
+    "npm:aurelia-templating-binding@1.5.3/aurelia-templating-binding.js": [
+      "aurelia-logging",
+      "aurelia-binding",
+      "aurelia-templating"
+    ],
+    "npm:aurelia-animator-css@1.0.1/aurelia-animator-css.js": [
+      "aurelia-templating",
+      "aurelia-pal"
+    ],
+    "npm:aurelia-bootstrapper@2.3.3/aurelia-bootstrapper.js": [
+      "aurelia-pal",
+      "aurelia-polyfills"
+    ],
+    "npm:aurelia-framework@1.3.1/aurelia-framework.js": [
+      "aurelia-dependency-injection",
+      "aurelia-binding",
+      "aurelia-metadata",
+      "aurelia-templating",
+      "aurelia-loader",
+      "aurelia-task-queue",
+      "aurelia-path",
+      "aurelia-pal",
+      "aurelia-logging"
+    ]
   }
 });

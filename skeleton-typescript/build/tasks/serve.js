@@ -49,3 +49,5 @@ function serveUsingBrowserSync(baseDir, done) {
     }
   }, done);
 }
+
+export const serveOnly = gulp.series(serveUsingBrowserSync.bind(undefined, '.'));
