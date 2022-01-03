@@ -1,4 +1,4 @@
-System.config({
+SystemJS.config({
   paths: {
     "github:": "jspm_packages/github/",
     "npm:": "jspm_packages/npm/"
@@ -15,6 +15,12 @@ System.config({
       ]
     }
   },
+  packages: {
+    ".": {}
+  }
+});
+
+SystemJS.config({
   packageConfigPaths: [
     "npm:@*/*.json",
     "npm:*.json",
@@ -69,7 +75,6 @@ System.config({
     "vm": "npm:jspm-nodelibs-vm@0.2.1"
   },
   packages: {
-    ".": {},
     "github:twbs/bootstrap@3.3.7": {
       "map": {
         "jquery": "npm:jquery@2.2.4"
