@@ -21,6 +21,8 @@ serveBundle.displayName = 'serve-bundle';
 export const serveExport = gulp.series(exportRelease, serveUsingBrowserSync.bind(undefined, './export'));
 serveExport.displayName = 'serve-export';
 
+export const serveOnly = serveUsingBrowserSync.bind(undefined, '.');
+
 function serveUsingBrowserSync(baseDir, done) {
   const browserSync = require('browser-sync');
   browserSync({
