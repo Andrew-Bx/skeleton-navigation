@@ -4,7 +4,8 @@ const config = {
   force: true,
   baseURL: '.',
   configPath: './jspm.config.js',
-  bundles: bundles.bundles
+  bundles: bundles.bundles,
+  injectionConfigPath: './jspm.bundles.js'
 };
 
 export const unbundle = function() {

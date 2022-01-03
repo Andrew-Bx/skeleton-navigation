@@ -3,6 +3,7 @@ export * from './build/tasks/lint';
 export * from './build/tasks/build';
 export * from './build/tasks/bundle';
 export * from './build/tasks/unbundle';
+export * from './build/tasks/dev-bundle';
 export * from './build/tasks/e2e';
 export * from './build/tasks/dev';
 export * from './build/tasks/test';
